@@ -1,0 +1,39 @@
+﻿<html>
+<head>
+    <title>Demo 1 : Convert All Textareas</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+
+    
+
+    <div id="sample">
+        <script type="text/javascript" src="../nicEdit.js"></script>
+        <script type="text/javascript">
+	
+	var editor;
+			
+			bkLib.onDomLoaded(function() { 
+			    editor = new nicEditor().panelInstance('wl_content');
+			    //window.external.SetQusetionText(editor.instanceById("wl_content").getContent());
+			    editor.instanceById("wl_content").onBlur = function () {
+			        window.external.SetText(editor.instanceById("wl_content").getContent());
+			    };
+			    editor.instanceById("wl_content").setContent(window.external.getText());
+			});
+            
+        </script>
+
+        <textarea name="wl_content" id="wl_content" style="width: 1366px;height:800px">
+            请在这里设计题目
+        </textarea>
+
+    </div>
+
+
+
+    
+
+
+</body>
+</html>
